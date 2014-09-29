@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="js/dijit/themes/claro/claro.css" />
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        
+        <title>Google Dojo</title>
+        
+        <!-- Dojo configuration and loading -->
+        <script src="js/dojoConfig.js"></script>
+        
+        <!-- Dojo base files -->
+        <script src="js/dojo/dojo.js"></script>
+        
+        <!-- Dojo script for a Google Custom Search interface -->
+        <script src="js/customSearch.js"></script>
+        
+    </head>
+    <body class="claro">
+        
+        <div id="container">
+            
+            <!-- Top toolbar and logo -->
+            <div id="header">
+                <ul class="header-text">
+                    <li><a href="about:blank" target="_blank">+You</a></li>
+                    <li><a href="about:blank" target="_blank">Gmail</a></li>
+                    <li><a href="about:blank" target="_blank">Images</a></li>
+                </ul>
+                <ul class="header-icon">
+                    <li><a id="header-apps" href="about:blank" target="_blank"></a></li>
+                    <li><a id="header-notifications" href="about:blank" target="_blank"></a></li>
+                    <li><a id="header-share" href="about:blank" target="_blank">Share</a></li>
+                    <li><a href="about:blank" target="_blank"><img id="header-pic" src="img/profile.png" alt="logo"/></a></li>
+                </ul>
+            </div>
+            <div id="logo">
+                <img src="img/logo.png" alt="logo" />
+            </div>
+            
+            <!-- Dojo form and buttons for search -->
+            <form>
+                <input id="dijitSearchField" />
+            </form>
+            <button id="dijitGoogleSearchButton" type="button"></button>
+            <button id="dijitImFeelingLuckyButton" type="button"></button>
+            
+            <!-- Dojo layout for search result display -->
+            <br>
+            <div data-dojo-type="dijit/layout/BorderContainer">
+            </div>
+            
+            <!-- div to push the bottom toolbar to the bottom of the viewport -->
+            <div id="push"></div> 
+        </div>
+        
+        <!-- Bottom toolbar -->
+        <div id="footer">
+            <ul id="footer-left"> <!-- float: left -->
+                <li><a href="about:blank" target="_blank">Advertising</a></li>
+                <li><a href="about:blank" target="_blank">Business</a></li>
+                <li><a href="about:blank" target="_blank">About</a></li>
+            </ul>
+            <ul id="footer-right"> <!-- float: right -->
+                <li><a href="about:blank" target="_blank">Privacy & Terms</a></li>
+                <li><a href="about:blank" target="_blank">Settings</a></li>
+            </ul>
+        </div>
+    </body>
+</html>
