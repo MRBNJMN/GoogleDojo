@@ -25,10 +25,18 @@ require([
                     cx: '001834378105419952226:knlbx1__nci',
                     q: dijitSearchField.get("value")
                 }
-            }).then(function(data) {                
-                localStorage.setItem("searchResults", JSON.stringify(data));
-                while (!localStorage.getItem("searchResults")) {}
-                window.open("results.html", "_blank");
+            }).then(function(data) {
+                if (data.error) {
+                    var errorDisplay = dom.byId('errorDisplay');
+                    errorDisplay.innerHTML += 
+                        "Error: " + data.error.message + "<br>" +
+                        "Error code " + data.error.code;
+                    console.log(data);
+                } else {
+                    localStorage.setItem("searchResults", JSON.stringify(data));
+                    while (!localStorage.getItem("searchResults")) {}
+                    window.open("results.html", "_blank");
+                }
             }, function(err){
                 console.log("Error!");
             }, function(evt){

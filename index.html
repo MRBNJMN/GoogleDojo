@@ -45,13 +45,14 @@
             <form>
                 <input id="dijitSearchField" />
             </form>
-            <button id="dijitGoogleSearchButton" type="button"></button>
-            <button id="dijitImFeelingLuckyButton" type="button"></button>
+            <div id='buttons'>
+                <button id="dijitGoogleSearchButton" type="button"></button>
+                <button id="dijitImFeelingLuckyButton" type="button"></button>
+            </div>
             
             <!-- Dojo layout for search result display -->
-            <br>
-            <div data-dojo-type="dijit/layout/BorderContainer">
-            </div>
+            <br><br>
+            <div id='errorDisplay'></div>
             
             <!-- div to push the bottom toolbar to the bottom of the viewport -->
             <div id="push"></div> 

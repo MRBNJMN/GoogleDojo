@@ -17,15 +17,25 @@ and open the template in the editor.
         <!-- Dojo - base files -->
         <script src="js/dojo/dojo.js"></script>
         
+        <!-- Test load (for when I make too many search requests -->
+        <script src="js/testResults.js"></script>
+        
         <!-- Dojo - search result parsing and output-->
         <script src='js/searchResults.js'></script>
 
     </head>
-    <body>
-        <div id='dijitResultTitle'></div>
-        <div id='dijitResultDisplay'></div>
-        <div id='dijitResultFooter'></div>
-        <button id="dijitResultPrevButton" type="button"></button>
-        <button id="dijitResultNextButton" type="button"></button>
+    <body class='narrowCentered'>
+        <div class='container'>
+            <div class="centeredLogo">
+                <img src="img/logo.png" alt="logo" />
+            </div>
+            <div id='dijitResultTitle'></div>
+            <div id='dijitResultDisplay'></div>
+            <div class='centeredButtons'>
+                <button id="dijitResultPrevButton" type="button"></button>
+                <button id="dijitResultNextButton" type="button"></button>
+            </div>
+            <div class="bottomPush"></div>
+        </div>
     </body>
 </html>

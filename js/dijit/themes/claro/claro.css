@@ -250,7 +250,7 @@ td.dijitButtonContents {
 }
 .dijitButtonNode {
 	
-	border:1px solid gray;
+	/* border:1px solid gray; */
 	margin:0;
 	line-height:normal;
 	vertical-align: middle;
