@@ -35,11 +35,11 @@ require([
                 } else {
                     localStorage.setItem("searchResults", JSON.stringify(data));
                     while (!localStorage.getItem("searchResults")) {}
-                    window.open("results.html", "_blank");
+                    window.open("results.html", "_blank", "width=1200, height=1000");
                 }
-            }, function(err){
+            }, function(err) {
                 console.log("Error!");
-            }, function(evt){
+            }, function(evt) {
                 console.log("Event!");
             });
         }

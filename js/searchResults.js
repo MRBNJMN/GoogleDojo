@@ -8,10 +8,10 @@ require([
     'dojo/domReady!'
 ], function(dom, parser, JSON, request, domStyle, Button) {
     // Retrieve data from browser storage
-//    var resultsRetrieve = localStorage.getItem("searchResults");
-//    var data = JSON.parse(resultsRetrieve);
+    var resultsRetrieve = localStorage.getItem("searchResults");
+    var data = JSON.parse(resultsRetrieve);
     
-//    localStorage.setItem("searchTerms", data.queries.nextPage[0].searchTerms);
+    localStorage.setItem("searchTerms", data.queries.nextPage[0].searchTerms);
 
     // Retrieve IDs for results.html dijit divs
     var dijitResultTitle = dom.byId('dijitResultTitle');
