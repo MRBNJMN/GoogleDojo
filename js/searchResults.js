@@ -1,10 +1,10 @@
 require([
     'dojo/dom',
-    'dojo/JSON',
+    'dojo/json',
     'dojo/request/script',
     'dijit/form/Button',
     'dojo/domReady!'
-], function(dom,JSON, request, Button) {
+], function(dom, JSON, request, Button) {
     // Retrieve data from browser storage
     var searchQuery = localStorage.getItem("searchQuery");
     console.log(searchQuery);
@@ -19,14 +19,15 @@ require([
     
     // Declare storage and make the initial API call
     var data = {
-        type: "",
-        results: {}
+        "type": "",
+        "results": {}
     };
     
     apiCall(searchQuery, 0, data);
     console.log(data);
     console.log(data.type);
     
+    dom.byId('resultDisplay').innerHTML=JSON.stringify(data);
     if (data.type === "errorAPI") {
         // Put the search query in the header
         resultTitle.innerHTML +=
@@ -89,7 +90,7 @@ require([
         resultTitle.innerHTML +=
             "<span class='resultsHeader'>" + searchQuery + "<br>";
         // Display error information
-        resultDisplay.innerHTML += JSON.stringify(data);	
+        //resultDisplay.innerHTML += JSON.stringify(data);	
             //"<span class='resultsError'>Unknown error!</span><br>";
     }
     
@@ -104,14 +105,12 @@ require([
                 }
             }).then(function(response) {
                 if (response.error) {
-                    var errorObj = {
+                    objectRef.results = {
                         'message': response.error.message,
                         'code': response.error.code
                     };
-                    objectRef.results = errorObj;
                     objectRef.type = "errorAPI";
                 } else {
-                    objectRef.results = new Array();
                     for (var i = 0; i < 10; i++) {
                         objectRef.results[i] = {
                             htmlTitle: response.items[i].title,
@@ -121,6 +120,8 @@ require([
                         };
                     };
                     objectRef.type = "results";
+                    //dom.byId('resultDisplay').innerHTML=JSON.stringify(objectRef);
+                   
                 }
             }, function(err) {
                 console.log(err);
@@ -138,14 +139,12 @@ require([
                 }
             }).then(function(response) {
                 if (response.error) {
-                    var errorObj = {
+                    objectRef.results = {
                         'message': response.error.message,
                         'code': response.error.code
-                    };
-                    objectRef.results = errorObj;
+                    };;
                     objectRef.type = "errorAPI";
                 } else {
-                    objectRef.results = new Array();
                     for (var i = 0; i < 10; i++) {
                         objectRef.results[i] = {
                             htmlTitle: response.items[i].title,
@@ -154,7 +153,9 @@ require([
                             snippet: response.items[i].snippet
                         }
                     };
+                    
                     objectRef.type = "results";
+                           
                 }
             }, function(err) {
                 console.log(err);
