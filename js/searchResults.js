@@ -18,17 +18,13 @@ require([
     
     // Declare storage and make the initial API call
     var data = {
-        "results":"testString",
-        "type":"results"
-        
+        type: "",
+        results: {}
     };
+    
     apiCall(searchQuery, 0, data);
     console.log(data);
     console.log(data.type);
-    data['type'] = "test";
-    console.log(data);
-    console.log(data.type);
-    console.log(data['type']);
     
     if (data.type === "errorAPI") {
         // Put the search query in the header
@@ -86,7 +82,6 @@ require([
                 }
             }
         }, "dijitResultPrevButton").startup();
-        
     }
     else {
         // Put the search query in the header
@@ -122,7 +117,7 @@ require([
                             displayLink: response.items[i].displayLink,
                             link: response.items[i].link,
                             snippet: response.items[i].snippet
-                        }
+                        };
                     };
                     objectRef.type = "results";
                 }
