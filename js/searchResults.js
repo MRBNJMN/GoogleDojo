@@ -1,9 +1,10 @@
 require([
     'dojo/dom',
+    'dojo/JSON',
     'dojo/request/script',
     'dijit/form/Button',
     'dojo/domReady!'
-], function(dom, request, Button) {
+], function(dom,JSON, request, Button) {
     // Retrieve data from browser storage
     var searchQuery = localStorage.getItem("searchQuery");
     console.log(searchQuery);
@@ -88,8 +89,8 @@ require([
         resultTitle.innerHTML +=
             "<span class='resultsHeader'>" + searchQuery + "<br>";
         // Display error information
-        resultDisplay.innerHTML +=
-            "<span class='resultsError'>Unknown error!</span><br>";
+        resultDisplay.innerHTML += JSON.stringify(data);	
+            //"<span class='resultsError'>Unknown error!</span><br>";
     }
     
     function apiCall(query, startCount, objectRef) {
