@@ -7,7 +7,7 @@ require([
 ], function(dom, JSON, request, Button) {
     
     // Retrieve data from browser storage
-    var searchQuery = localStorage.getItem("searchQuery");
+    var searchQuery = localStorage.getItem('searchQuery');
     
     // Establish dojo pointers to search result divs
     var resultTitle = dom.byId('resultTitle');
@@ -18,8 +18,8 @@ require([
     
     // Declare result storage
     var data = {
-        "type": "",
-        "results": {}
+        'type': '',
+        'results': {}
     };
     
     // Make the API call for initial results
@@ -33,7 +33,7 @@ require([
     function apiWait() {
         
         // If we've exceeded our query limit
-        if (data.type === "errorAPI") {
+        if (data.type === 'errorAPI') {
             // Put the search query in the header
             resultTitle.innerHTML +=
                 "<span class='resultsHeader'>" + searchQuery + "<br>";
@@ -44,7 +44,7 @@ require([
         }
         
         // Else if we received results
-        else if (data.type === "results") {
+        else if (data.type === 'results') {
             // Put the search query in the header
             resultTitle.innerHTML +=
                 "<span class='resultsHeader'>" + searchQuery + "<br>";
@@ -62,7 +62,7 @@ require([
             };
             // Provide a button to make another call and load more results
             var loadMoreButton = new Button({
-                label: "Load More",
+                label: 'Load More',
                 // Increase the result index
                 // Pass it as the new startCount
                 // Load the new results after 1 second
@@ -71,7 +71,7 @@ require([
                     apiCall(searchQuery, resultIndex, data);
                     setTimeout(apiLoadMoreWait, 1000);
                 }
-            }, "loadMore").startup();
+            }, 'loadMore').startup();
         }
         
         // Else, something unexpected happened
@@ -89,14 +89,14 @@ require([
     function apiLoadMoreWait() {
         
         // If we've exceeded our query limit
-        if (data.type === "errorAPI") {
+        if (data.type === 'errorAPI') {
             resultDisplay.innerHTML +=
                 "<span class='resultsError'>Error: " + data.results.message +
                 "<br>" + "Code: " + data.results.code + "</span><br>";
         }
         
         // Else if we received results
-        else if (data.type === "results") {
+        else if (data.type === 'results') {
             for (var i = resultIndex; i < (resultIndex + 10); i++) {
                 resultDisplay.innerHTML +=
                 "<div class='resultsItem" + i % 2 + "'>" + // For alternating color BG
@@ -125,7 +125,7 @@ require([
         if (startCount === 0) {
             request.get('https://www.googleapis.com/customsearch/v1', {
                 // Use jsonp for cross-domain HTTP request
-                jsonp: "callback",
+                jsonp: 'callback',
                 // Pass API key, search engine reference, and user query
                 // as parameters
                 query: {
@@ -142,7 +142,7 @@ require([
         // If we DO need &start in our HTTP request (results requested > 10)
         else {
             request.get('https://www.googleapis.com/customsearch/v1', {
-                jsonp: "callback",
+                jsonp: 'callback',
                 query: {
                     key: 'AIzaSyAgNwK5hmxv60pycYKz2ruQIjro3GD_tcM',
                     cx: '001834378105419952226:knlbx1__nci',
@@ -168,7 +168,7 @@ require([
                     'message': response.error.message,
                     'code': response.error.code
                 };
-                objectRefResp.type = "errorAPI";
+                objectRefResp.type = 'errorAPI';
             }
             // Else, if we get results back
             else {
@@ -182,7 +182,7 @@ require([
                         snippet: response.items[i].snippet
                     };
                 };
-                objectRefResp.type = "results";
+                objectRefResp.type = 'results';
             }
         };
     } // End apiResponse()

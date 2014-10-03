@@ -14,7 +14,7 @@ body {
 .narrowCentered {
     width: 1000px;
     margin: 20px auto 0;
-    background-image: url("../img/bg.png");
+    background-image: url('../img/bg.png');
     
     border: 3px solid #000;
     box-shadow: 5px 5px 5px #222;

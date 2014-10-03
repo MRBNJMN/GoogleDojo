@@ -79,7 +79,7 @@ html, body {
     
     margin-left: 12px;
     
-    background-image: url("../img/sprite.png");
+    background-image: url('../img/sprite.png');
     background-position: -35px -100px;
 }
 
@@ -89,7 +89,7 @@ html, body {
     
     margin-left: 16px;
     
-    background-image: url("../img/sprite.png");
+    background-image: url('../img/sprite.png');
     background-position: 0px -70px;
 }
 
@@ -102,7 +102,7 @@ html, body {
     
     margin-left: 10px;
     
-    background-image: url("../img/sprite.png");
+    background-image: url('../img/sprite.png');
     background-position: -260px 0px;
 }
 
