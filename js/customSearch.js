@@ -37,7 +37,7 @@ require([
     
     // I'm Feeling Lucky button (mostly for appearances)
     var dijitImFeelingLuckyButton = new Button({
-        label: 'I'm Feeling Lucky',
+        label: "I'm Feeling Lucky",
         onClick: function() {}
     }, 'dijitImFeelingLuckyButton').startup();
 });
